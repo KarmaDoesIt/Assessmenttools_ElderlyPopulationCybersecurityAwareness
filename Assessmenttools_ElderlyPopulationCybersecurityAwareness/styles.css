@@ -1,4 +1,4 @@
-/* General Styles */
+/* General */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,7 +7,7 @@ body {
     color: black;
 }
 
-/* Header Styles */
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -24,7 +24,7 @@ header {
     color: black;
 }
 
-/* Navigation Styles */
+/* Navigation */
 nav ul {
     list-style: none;
     padding: 0;
@@ -46,13 +46,13 @@ nav ul li a {
     border-radius: 5px; /* Slightly rounded rectangle */
 }
 
-/* Add a rectangular hover effect */
+/* Rectangular hover effect */
 nav ul li a:hover {
     background: linear-gradient(135deg, #4b0082, #6a0dad); /* Dark purple gradient */
     color: white;
     border-color: #4b0082;
     padding: 10px 15px;
-    border-radius: 5px; /* Keeps the rounded rectangle shape */
+    border-radius: 5px; /* Rounded rectangle shape */
 }
 
 /* Home Section */
@@ -88,7 +88,7 @@ nav ul li a:hover {
 #articles h1 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #4b0082; /* Purple */
+    color: #4b0082;
 }
 
 /* Article List Styles */
@@ -120,7 +120,7 @@ nav ul li a:hover {
     border-color: #6a0dad;
 }
 
-/* Article Content Styling */
+/* Article Styling */
 article {
     background-color: #f7f7f7;
     padding: 20px;
