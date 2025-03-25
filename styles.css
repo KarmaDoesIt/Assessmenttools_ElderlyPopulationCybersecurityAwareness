@@ -1,0 +1,173 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: white;
+    border-bottom: 2px solid #6a0dad; /* Thin purple bottom border */
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    padding: 10px 15px;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    border-radius: 5px; /* Slightly rounded rectangle */
+}
+
+/* Rectangular hover effect */
+nav ul li a:hover {
+    background: linear-gradient(135deg, #4b0082, #6a0dad); /* Dark purple gradient */
+    color: white;
+    border-color: #4b0082;
+    padding: 10px 15px;
+    border-radius: 5px; /* Rounded rectangle shape */
+}
+
+/* Home Section */
+#home {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+#home h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+#home p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Quiz Section */
+#quiz {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+/* Articles Section */
+#articles {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+#articles h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #4b0082;
+}
+
+/* Article List Styles */
+.article-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.article-list li {
+    margin-bottom: 15px;
+}
+
+.article-list a {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Hover effect for article links */
+.article-list a:hover {
+    background-color: #6a0dad;
+    color: white;
+    border-color: #6a0dad;
+}
+
+/* Article Styling */
+article {
+    background-color: #f7f7f7;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+article h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #4b0082; /* Purple */
+}
+
+article p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: black;
+}
+
+/* Button Styling */
+.button {
+    display: inline-block;
+    padding: 12px 30px;
+    margin: 10px;
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+    border: 2px solid #6a0dad; /* Purple border */
+    border-radius: 8px; /* Less circular, more rectangular */
+    transition: all 0.3s ease-in-out;
+    background: none;
+}
+
+/* Button hover effect */
+.button:hover {
+    background: linear-gradient(135deg, #4b0082, #6a0dad); /* Dark purple gradient */
+    color: white;
+    border-color: #4b0082;
+}
+
+/* Footer Styles */
+footer {
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    border-top: 2px solid #6a0dad; /* Thin purple top border */
+}
