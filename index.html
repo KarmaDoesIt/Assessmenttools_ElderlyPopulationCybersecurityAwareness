@@ -16,9 +16,24 @@
         <li><a href="quiz.html" data-i18n="navQuiz">Quiz</a></li>
         <li>
           <select id="languageSwitcher">
-            <option value="en">English</option>
-            <option value="es">Español</option>
-          </select>
+  <option value="index_en.html">English</option>
+  <option value="index_es.html">Español</option>
+</select>
+
+<script>
+  document.getElementById("languageSwitcher").addEventListener("change", function () {
+    window.location.href = this.value;
+  });
+
+  // Optional: Auto-select the current language in the dropdown
+  const currentPage = location.pathname.split("/").pop();
+  const options = document.querySelectorAll("#languageSwitcher option");
+  options.forEach(option => {
+    if (option.value === currentPage) {
+      option.selected = true;
+    }
+  });
+</script>
         </li>
       </ul>
     </nav>
