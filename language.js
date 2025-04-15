@@ -5,8 +5,6 @@
             window.location.href = 'index_en.html';
         } else if (lang === 'es') {
             window.location.href = 'index_es.html';
-        } else if (lang === 'fr') {
-            window.location.href = 'index_fr.html';
         }
     }
 </script>
