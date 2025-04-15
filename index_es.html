@@ -14,10 +14,25 @@
       <li><a href="index_es.html">Inicio</a></li>
       <li><a href="articles_es.html">Módulos</a></li>
       <li><a href="quiz_es.html">Prueba</a></li>
-       <select id="languageSwitcher">
+        <select id="languageSwitcher">
   <option value="index_en.html">English</option>
   <option value="index_es.html">Español</option>
 </select>
+
+<script>
+  document.getElementById("languageSwitcher").addEventListener("change", function () {
+    window.location.href = this.value;
+  });
+
+  // Optional: Auto-select the current language in the dropdown
+  const currentPage = location.pathname.split("/").pop();
+  const options = document.querySelectorAll("#languageSwitcher option");
+  options.forEach(option => {
+    if (option.value === currentPage) {
+      option.selected = true;
+    }
+  });
+</script>
     </ul>
   </nav>
 </header>
