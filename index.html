@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title data-i18n="title">Cybersecurity Awareness</title>
+  <title>Cybersecurity Awareness</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -11,32 +11,40 @@
     <a href="#home" class="site-logo">Site Name/Logo</a>
     <nav>
       <ul>
-        <li><a href="index_en.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="modules.html">Modules</a></li>
         <li><a href="quiz.html">Quiz</a></li>
         <li>
           <select id="languageSwitcher">
-  <option value="index_en.html">English</option>
-  <option value="index_es.html">Español</option>
-</select>
-
-<script>
-  document.getElementById("languageSwitcher").addEventListener("change", function () {
-    window.location.href = this.value;
-  });
-
-  // Optional: Auto-select the current language in the dropdown
-  const currentPage = location.pathname.split("/").pop();
-  const options = document.querySelectorAll("#languageSwitcher option");
-  options.forEach(option => {
-    if (option.value === currentPage) {
-      option.selected = true;
-    }
-  });
-</script>
+            <option value="index.html">English</option>
+            <option value="index_es.html">Español</option>
+          </select>
         </li>
       </ul>
     </nav>
   </header>
 
+  <main>
+    <section id="home">
+      <h1>Learn Secure Protect</h1>
+      <p>Welcome to our cybersecurity awareness tool.</p>
+      <a href="modules.html" class="button">View Modules</a>
+      <a href="quiz.html" class="button">Take the Quiz</a>
+    </section>
+  </main>
 
+  <script>
+    document.getElementById("languageSwitcher").addEventListener("change", function () {
+      window.location.href = this.value;
+    });
+
+    const currentPage = location.pathname.split("/").pop();
+    const options = document.querySelectorAll("#languageSwitcher option");
+    options.forEach(option => {
+      if (option.value === currentPage) {
+        option.selected = true;
+      }
+    });
+  </script>
+</body>
+</html>
