@@ -1,78 +1,92 @@
-let language = 'en'; // Default language
 
-const content = {
-    en: {
-        question: "What should you do if you receive an email from an unknown sender asking for personal information?",
-        options: [
-            { answer: "Ignore it", isCorrect: false },
-            { answer: "Reply with your information", isCorrect: false },
-            { answer: "Click on the link to check", isCorrect: false },
-            { answer: "Report it as spam", isCorrect: true }
-        ],
-        correctAnswer: "Report it as spam",
-        feedback: "Phishing emails can look like legitimate messages, but they are designed to steal your personal information. Always report suspicious emails."
-    },
-    es: {
-        question: "¿Qué debes hacer si recibes un correo electrónico de un remitente desconocido pidiendo información personal?",
-        options: [
-            { answer: "Ignorarlo", isCorrect: false },
-            { answer: "Responder con tu información", isCorrect: false },
-            { answer: "Hacer clic en el enlace para comprobarlo", isCorrect: false },
-            { answer: "Reportarlo como spam", isCorrect: true }
-        ],
-        correctAnswer: "Reportarlo como spam",
-        feedback: "Los correos electrónicos de phishing pueden parecer mensajes legítimos, pero están diseñados para robar tu información personal. Siempre reporta los correos sospechosos."
-    }
-};
+// git add . git commit - m"message of what is updated"
+document.addEventListener("DOMContentLoaded", () => {
+    const quizData = [
+        {
+            question: "What should you do if you receive an email from an unknown sender asking for personal information?",
+            options: [
+                "Ignore it",
+                "Reply with your information",
+                "Click on the link to check",
+                "Report it as spam",
+            ],
+            correct: 0, // Index of the correct answer
+        },
+        {
+            question: "What is a computer virus?",
+            options: [
+                "A type of hardware",
+                "A security update",
+                "A malicious software program",
+                "An email provider",
+            ],
+            correct: 2,
+        
+        }
+    ];
 
-document.addEventListener('DOMContentLoaded', function() {
-    const quizContainer = document.getElementById('quiz-container');
+    let currentQuestion = 0;
+    const quizContainer = document.querySelector("#quiz-question");
+    const questionTitle = quizContainer.querySelector("h1");
+    const questionText = quizContainer.querySelector("p");
+    const optionButtons = Array.from(quizContainer.querySelectorAll("button"));
 
-    function displayQuestion() {
-        const questionData = content[language]; // Get content based on selected language
-
-        const questionElement = document.createElement('div');
-        questionElement.innerHTML = `
-            <h2>${questionData.question}</h2>
-            <div class="options">
-                ${questionData.options.map(option => `
-                    <button class="option-button">${option.answer}</button>
-                `).join('')}
-            </div>
-            <div id="feedback" class="feedback"></div>
-        `;
-        quizContainer.appendChild(questionElement);
-
-        // Add event listeners to buttons
-        const buttons = document.querySelectorAll('.option-button');
-        buttons.forEach((button, index) => {
-            button.addEventListener('click', function() {
-                const feedback = document.getElementById('feedback');
-                const isCorrect = questionData.options[index].isCorrect;
-                if (isCorrect) {
-                    feedback.textContent = `Correct! ${questionData.feedback}`;
-                    feedback.classList.add('correct');
-                    feedback.classList.remove('incorrect');
-                    // After a short delay, continue reading the article.
-                    setTimeout(() => {
-                        questionElement.style.display = 'none'; // Hide the question
-                        alert('Proceeding with the article...');
-                    }, 2000);
-                } else {
-                    feedback.textContent = `Incorrect. The correct answer is: "${questionData.correctAnswer}". ${questionData.feedback}`;
-                    feedback.classList.add('incorrect');
-                    feedback.classList.remove('correct');
-                }
-            });
+    // Load the question
+    function loadQuestion(index) {
+        const questionData = quizData[index];
+        questionTitle.textContent = `Question #${index + 1}`;
+        questionText.textContent = questionData.question;
+        optionButtons.forEach((button, idx) => {
+            button.textContent = questionData.options[idx];
+            button.onclick = () => saveAnswer(idx);
         });
     }
 
-    displayQuestion();
+    // Save the user's answer
+    function saveAnswer(selectedOption) {
+        const isCorrect = selectedOption === quizData[currentQuestion].correct;
+        console.log(`Answer: ${quizData[currentQuestion].options[selectedOption]} - ${isCorrect ? "Correct" : "Incorrect"}`);
+        saveToLocalStorage(currentQuestion, selectedOption);
+
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+            loadQuestion(currentQuestion);
+        } else {
+            displayResults();
+        }
+
+    }
+
+    // Save answers to localStorage
+    function saveToLocalStorage(questionIndex, selectedOption) {
+        const answers = JSON.parse(localStorage.getItem("quizAnswers")) || {};
+        answers[questionIndex] = selectedOption;
+        localStorage.setItem("quizAnswers", JSON.stringify(answers));
+    }
+
+    // Display results
+    function displayResults(answerIndex) {
+        quizContainer.innerHTML = `<h1>Quiz Completed</h1><p>Check the console for your answers.</p>`;
+        
+        const savedAns = JSON.parse(localStorage.getItem("quizAnswers"));
+        let resultsHTML = ' ';
+        let score = 0;
+
+        quizData.forEach((question, index) => {
+            const userAnswer = savedAnswers[index];
+            const isCorrect = userAnswer === question.correct;
+
+            resultsHTML += `<p>Question #${index + 1}: ${question.question}</p>`;
+
+            resultsHTML += `<p>Status: ${isCorrect ? "Correct" : "Incorrect"}</p><br/>`;
+
+            if (isCorrect) {
+                score++;
+            }
+        });
+
+        resultsHTML += '<h2>Your score: ${score} out of $quizData.length}<h2>';
+    }
+
+    loadQuestion(currentQuestion);
 });
-
-// Language switcher function
-function changeLanguage(lang) {
-    language = lang; // Set selected language
-    location.reload(); // Reload the page to apply changes
-}
-
