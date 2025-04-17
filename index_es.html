@@ -7,44 +7,44 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-  <div class="Site Name/Logo">Site Name/Logo</div>
-  <nav>
-    <ul>
-      <li><a href="index_es.html">Inicio</a></li>
-      <li><a href="articles_es.html">Módulos</a></li>
-      <li><a href="quiz_es.html">Prueba</a></li>
-        <select id="languageSwitcher">
-  <option value="index_en.html">English</option>
-  <option value="index_es.html">Español</option>
-</select>
+  <header>
+    <a href="#inicio" class="site-logo">Site Name/Logo</a>
+    <nav>
+      <ul>
+        <li><a href="index_es.html">Inicio</a></li>
+        <li><a href="modules_es.html">Módulos</a></li>
+        <li><a href="quiz_es.html">Prueba</a></li>
+        <li>
+          <select id="languageSwitcher">
+            <option value="index.html">English</option>
+            <option value="index_es.html">Español</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-<script>
-  document.getElementById("languageSwitcher").addEventListener("change", function () {
-    window.location.href = this.value;
-  });
+  <main>
+    <section id="inicio">
+      <h1>Aprenda Asegure Proteja</h1>
+      <p>Bienvenidos a nuestra herramienta de conciencia de seguridad informática.</p>
+      <a href="modules_es.html" class="button">Ver Módulos</a>
+      <a href="quiz_es.html" class="button">Tome la prueba</a>
+    </section>
+  </main>
 
-  // Optional: Auto-select the current language in the dropdown
-  const currentPage = location.pathname.split("/").pop();
-  const options = document.querySelectorAll("#languageSwitcher option");
-  options.forEach(option => {
-    if (option.value === currentPage) {
-      option.selected = true;
-    }
-  });
-</script>
-    </ul>
-  </nav>
-</header>
+  <script>
+    document.getElementById("languageSwitcher").addEventListener("change", function () {
+      window.location.href = this.value;
+    });
 
-<main>
-  <section id="Inicio">
-    <h1>Aprenda Asegure Proteja</h1>
-    <p>Bienvendos a nuestra herramienta de conciencia de seguridad informática.</p>
-    <a href="articles_es.html" class="button">Ver Modulos</a>
-    <a href="quiz_es.html" class="button">Tome la prueba</a>
-  </section>
-</main>
-
+    const currentPage = location.pathname.split("/").pop();
+    const options = document.querySelectorAll("#languageSwitcher option");
+    options.forEach(option => {
+      if (option.value === currentPage) {
+        option.selected = true;
+      }
+    });
+  </script>
 </body>
 </html>
