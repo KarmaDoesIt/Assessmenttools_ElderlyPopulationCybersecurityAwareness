@@ -236,3 +236,61 @@ footer {
     text-decoration: underline;
   }
   
+  /* Inline Quiz Button Styles */
+.inline-quiz button {
+    background-color: #ffffff;
+    color: #6a0dad;
+    border: 2px solid #6a0dad;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 8px 0;
+    width: 100%;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .inline-quiz button:hover {
+    background-color: #6a0dad;
+    color: white;
+  }
+  
+  .inline-quiz .feedback {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .inline-quiz .correct {
+    color: green;
+  }
+  
+  .inline-quiz .incorrect {
+    color: red;
+  }
+
+  .inline-quiz .feedback {
+    margin-top: 12px;
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 6px;
+  }
+  
+  .inline-quiz .correct {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .inline-quiz .incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+
+  .inline-quiz ul {
+  list-style-type: none; /* Removes bullet points */
+  padding-left: 0;       /* Removes extra indentation */
+}
+.inline-quiz li {
+  margin-bottom: 8px;
+}
+
