@@ -71,6 +71,21 @@ nav ul li a:hover {
     font-size: 20px;
     margin-bottom: 20px;
 }
+#inicio {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+#inicio h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+#inicio p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
 
 /* Quiz Section */
 #quiz {
