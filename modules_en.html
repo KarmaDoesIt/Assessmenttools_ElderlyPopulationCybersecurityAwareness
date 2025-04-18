@@ -21,17 +21,30 @@
     <main>
             <h1>Modules</h1>
             <div class="module">
-                <button class="dropdown-btn">Virus Module</button>
+                <button class="dropdown-btn">▶ Learn About Viruses</button>
                 <div class="dropdown-content">
                 <ul>
-                    <li><a href="Articles/Virus/virus_intro.html">What is a Computer Virus?</a></li>
-                    <li><a href="Articles/Virus/virus_effects.html"> What Does a Virus Do?</a></li>
-                    <li><a href="Articles/Virus/virus_prevention.html"> How to Prevent Viruses</a></li>
-                    <li><a href="Articles/Virus/virus_removal.html"> How to Remove a Virus</a></li>
-                    <li><a href="Articles/Virus/virus_conclusion.html"> Virus Final Recap and Summary</a></li>
+                    <li><a href="Articles/Virus/virus_intro.html">1. What is a Computer Virus?</a></li>
+                    <li><a href="Articles/Virus/virus_effects.html">2. What Does a Virus Do?</a></li>
+                    <li><a href="Articles/Virus/virus_prevention.html">3. How to Prevent Viruses</a></li>
+                    <li><a href="Articles/Virus/virus_removal.html">4. How to Remove a Virus</a></li>
+                    <li><a href="Articles/Virus/virus_conclusion.html">5. Virus Final Recap and Summary</a></li>
                 </ul>
             </div>
         </div>
+        <div class="module">
+            <button class="dropdown-btn">▶ Learn About Trojan Malware</button>
+            <div class="dropdown-content">
+              <ul>
+                <li><a href="Articles/Trojan/trojan_intro.html">1. What Is Trojan Malware?</a></li>
+                <li><a href="Articles/Trojan/trojan_effects.html">2. What Can a Trojan Do?</a></li>
+                <li><a href="Articles/Trojan/trojan_prevention.html">3. How to Prevent Trojans</a></li>
+                <li><a href="Articles/Trojan/trojan_removal.html">4. Removing a Trojan</a></li>
+                <li><a href="Articles/Trojan/trojan_conclusion.html">5. Trojan Final Recap and Summary</a></li>
+              </ul>
+            </div>
+          </div>
+          
     </main>
     
     <footer>
@@ -41,14 +54,16 @@
         const dropdowns = document.querySelectorAll('.dropdown-btn');
       
         dropdowns.forEach(button => {
+          const originalLabel = button.textContent.replace(/^▶|▼/, '').trim();
+      
           button.addEventListener('click', () => {
             const content = button.nextElementSibling;
             const isOpen = content.style.display === 'block';
       
             content.style.display = isOpen ? 'none' : 'block';
-            button.textContent = isOpen ? '▶ Virus Module' : '▼ Virus Module';
+            button.textContent = (isOpen ? '▶ ' : '▼ ') + originalLabel;
           });
         });
-      </script>   
+      </script>       
 </body>
 </html>
