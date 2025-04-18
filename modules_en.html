@@ -19,20 +19,36 @@
     </header>
     
     <main>
-            <h1>Articles</h1>
-            <div class="article-list">
+            <h1>Modules</h1>
+            <div class="module">
+                <button class="dropdown-btn">Virus Module</button>
+                <div class="dropdown-content">
                 <ul>
-                    <li><a href="Articles/virus_en.html">Virus Article</a></li>
-                    <li><a href="Articles/adware_en.html">Adware Malware Article</a></li>
-                    <li><a href="Articles/trojan_en.html">Trojan Malware Article</a></li>
-                    <li><a href="Articles/phising_en.html">Phishing, Vishing, and Smishing Article Article</a></li>
-                    <li><a href="Articles/mobile_en.html">Mobile Malware Article</a></li>
+                    <li><a href="Articles/Virus/virus_intro.html">What is a Computer Virus?</a></li>
+                    <li><a href="Articles/Virus/virus_effects.html"> What Does a Virus Do?</a></li>
+                    <li><a href="Articles/Virus/virus_prevention.html"> How to Prevent Viruses</a></li>
+                    <li><a href="Articles/Virus/virus_removal.html"> How to Remove a Virus</a></li>
+                    <li><a href="Articles/Virus/virus_conclusion.html"> Virus Final Recap and Summary</a></li>
                 </ul>
             </div>
+        </div>
     </main>
     
     <footer>
         <p>&copy; 2025 Cybersecurity Awareness. All rights reserved.</p>
     </footer>
+    <script>
+        const dropdowns = document.querySelectorAll('.dropdown-btn');
+      
+        dropdowns.forEach(button => {
+          button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const isOpen = content.style.display === 'block';
+      
+            content.style.display = isOpen ? 'none' : 'block';
+            button.textContent = isOpen ? '▶ Virus Module' : '▼ Virus Module';
+          });
+        });
+      </script>   
 </body>
 </html>
