@@ -336,3 +336,12 @@ footer {
     color: #6a0dad;
   }
   
+  body {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  body.loaded {
+    opacity: 1;
+  }
+  
