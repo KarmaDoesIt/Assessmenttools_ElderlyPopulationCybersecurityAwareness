@@ -98,19 +98,24 @@
         <p>&copy; 2025 Cybersecurity Awareness. All rights reserved.</p>
     </footer>
     <script>
-        const dropdowns = document.querySelectorAll('.dropdown-btn');
+        const buttons = document.querySelectorAll('.dropdown-btn');
       
-        dropdowns.forEach(button => {
-          const originalLabel = button.textContent.replace(/^▶|▼/, '').trim();
-      
+        buttons.forEach(button => {
           button.addEventListener('click', () => {
             const content = button.nextElementSibling;
-            const isOpen = content.style.display === 'block';
       
-            content.style.display = isOpen ? 'none' : 'block';
-            button.textContent = (isOpen ? '▶ ' : '▼ ') + originalLabel;
+            // Toggle the active class
+            button.classList.toggle('active');
+      
+            // Animate open/close
+            if (content.style.maxHeight) {
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            }
           });
         });
-      </script>       
+      </script>
+        
 </body>
 </html>

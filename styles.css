@@ -200,25 +200,27 @@ footer {
     color: red;
 }
 
-/* Dropdown Modules */
+/* Dropdown Module Styles */
 .module {
-    margin: 30px auto;
     max-width: 800px;
+    margin: 20px auto;
     border: 2px solid #6a0dad;
-    border-radius: 8px;
-    padding: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f9f9f9;
   }
   
   .dropdown-btn {
     background-color: #6a0dad;
     color: white;
-    padding: 14px 20px;
     font-size: 18px;
-    border: none;
-    cursor: pointer;
+    font-weight: bold;
+    padding: 15px 20px;
     width: 100%;
+    border: none;
     text-align: left;
-    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
   }
   
   .dropdown-btn:hover {
@@ -226,30 +228,32 @@ footer {
   }
   
   .dropdown-content {
-    display: none;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ccc;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background-color: #f2f2f2;
   }
   
   .dropdown-content ul {
     list-style: none;
-    padding: 0;
+    margin: 0;
+    padding: 10px 20px;
   }
   
-  .dropdown-content li {
+  .dropdown-content ul li {
     margin: 10px 0;
   }
   
   .dropdown-content a {
-    font-size: 16px;
-    color: #6a0dad;
     text-decoration: none;
+    color: #6a0dad;
+    font-size: 16px;
   }
   
   .dropdown-content a:hover {
     text-decoration: underline;
   }
+  
   
   /* Inline Quiz Button Styles */
 .inline-quiz button {
