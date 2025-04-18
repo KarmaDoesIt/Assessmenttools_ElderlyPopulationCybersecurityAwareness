@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let score = 0;
 
         quizData.forEach((question, index) => {
-            const userAnswer = savedAnswers[index];
+            const userAnswer = savedAns[index];
             const isCorrect = userAnswer === question.correct;
 
             resultsHTML += `<p>Question #${index + 1}: ${question.question}</p>`;
