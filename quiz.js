@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             correct: 0, // Index of the correct answer
         },
+
         {
             question: "What is a computer virus?",
             options: [
@@ -23,9 +24,16 @@ document.addEventListener("DOMContentLoaded", () => {
             correct: 2,
         
         }
+        {
+            question: "",
+            options:[
+
+            ],
+        }
     ];
 
     let currentQuestion = 0;
+
     const quizContainer = document.querySelector("#quiz-question");
     const questionTitle = quizContainer.querySelector("h1");
     const questionText = quizContainer.querySelector("p");
@@ -34,11 +42,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // Load the question
     function loadQuestion(index) {
         const questionData = quizData[index];
+
         questionTitle.textContent = `Question #${index + 1}`;
         questionText.textContent = questionData.question;
+
         optionButtons.forEach((button, idx) => {
-            button.textContent = questionData.options[idx];
-            button.onclick = () => saveAnswer(idx);
+            if (questionData.options[idx]) {
+                button.style.display = "inline-block";
+                button.textContent = questionData.options[idx];
+                button.onclick = () => saveAnswer(idx);
+                button.disabled = false;
+            } 
+            else {
+                button.style.display = "none"; // Hide unused buttons
+            }
+            
         });
     }
 
