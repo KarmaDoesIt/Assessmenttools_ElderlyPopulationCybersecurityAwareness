@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Learning Modules</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="Site Name/Logo">Site Name/Logo</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="modules_en.html">Modules</a></li>
+                <li><a href="quiz_en.html">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+            <h1 style="text-align: center;">Learning Modules</h1>
+            <p style="text-align: center;"><em>Read and test your knowledge on different kinds of malware.</em></p>            
+            <div class="module">
+                <button class="dropdown-btn">▶ Learn About Viruses</button>
+                <!-- Virus Dropdown -->
+                <div class="dropdown-content">
+                <ul>
+                    <li><a href="Articles/Virus/virus_intro.html">1. What is a Computer Virus?</a></li>
+                    <li><a href="Articles/Virus/virus_effects.html">2. What Does a Virus Do?</a></li>
+                    <li><a href="Articles/Virus/virus_prevention.html">3. How to Prevent Viruses</a></li>
+                    <li><a href="Articles/Virus/virus_removal.html">4. How to Remove a Virus</a></li>
+                    <li><a href="Articles/Virus/virus_conclusion.html">5. Virus Final Recap and Summary</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Adware Malware Dropdown -->
+        <div class="module">
+            <button class="dropdown-btn">▶ Learn About Adware Malware</button>
+            <div class="dropdown-content">
+              <ul>
+                <li><a href="Articles/Adware/adware_intro.html">1. What Is Adware?</a></li>
+                <li><a href="Articles/Adware/adware_effects.html">2. What Can Adware Do?</a></li>
+                <li><a href="Articles/Adware/adware_prevention.html">3. How to Prevent Adware</a></li>
+                <li><a href="Articles/Adware/adware_removal.html">4. How to Remove Adware</a></li>
+                <li><a href="Articles/Adware/adware_conclusion.html">5. Adware Malware Final Recap and Summary</a></li>
+              </ul>
+            </div>
+          </div>  
+
+        <!-- Trojan Malware Dropdown -->
+        <div class="module">
+            <button class="dropdown-btn">▶ Learn About Trojan Malware</button>
+            <div class="dropdown-content">
+              <ul>
+                <li><a href="Articles/Trojan/trojan_intro.html">1. What Is Trojan Malware?</a></li>
+                <li><a href="Articles/Trojan/trojan_effects.html">2. What Can a Trojan Do?</a></li>
+                <li><a href="Articles/Trojan/trojan_prevention.html">3. How to Prevent Trojans</a></li>
+                <li><a href="Articles/Trojan/trojan_removal.html">4. Removing a Trojan</a></li>
+                <li><a href="Articles/Trojan/trojan_conclusion.html">5. Trojan Final Recap and Summary</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Phishing Dropdown -->
+          <div class="module">
+            <button class="dropdown-btn">▶ Learn About Phishing, Vishing, and Smishing</button>
+            <div class="dropdown-content">
+              <ul>
+                <li><a href="Articles/Phishing/phishing_intro.html">1. What Is Phishing, Vishing, and Smishing?</a></li>
+                <li><a href="Articles/Phishing/phishing_effects.html">2. What Can Phishing, Vishing, and Smishing Do?</a></li>
+                <li><a href="Articles/Phishing/phishing_prevention.html">3. How to Prevent Phishing, Vishing, and Smishing</a></li>
+                <li><a href="Articles/Phishing/phishing_removal.html">4. Removing Phishing, Vishing, and Smishing</a></li>
+                <li><a href="Articles/Phishing/phishing_conclusion.html">5. Phishing, Vishing, and Smishing Final Recap and Summary</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Mobile Malware Dropdown -->
+          <div class="module">
+            <button class="dropdown-btn">▶ Learn About Mobile Malware</button>
+            <div class="dropdown-content">
+              <ul>
+                <li><a href="Articles/Mobile/mobile_intro.html">1. What Is Mobile Malware?</a></li>
+                <li><a href="Articles/Mobile/mobile_effects.html">2. What Can Mobile Malware Do?</a></li>
+                <li><a href="Articles/Mobile/mobile_prevention.html">3. How to Prevent Mobile Malware</a></li>
+                <li><a href="Articles/Mobile/mobile_removal.html">4. Removing Mobile Malware</a></li>
+                <li><a href="Articles/Mobile/mobile_conclusion.html">5. Mobile Malware Final Recap and Summary</a></li>
+              </ul>
+            </div>
+          </div>
+
+          
+                 
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Cybersecurity Awareness. All rights reserved.</p>
+    </footer>
+    <script>
+        const buttons = document.querySelectorAll('.dropdown-btn');
+      
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+      
+            // Toggle the active class
+            button.classList.toggle('active');
+      
+            // Animate open/close
+            if (content.style.maxHeight) {
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            }
+          });
+        });
+      </script>
+        
+</body>
+</html>

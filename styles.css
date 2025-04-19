@@ -13,9 +13,11 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
-    background-color: white;
+    background-color: black;
     border-bottom: 2px solid #6a0dad; /* Thin purple bottom border */
 }
+
+
 
 /* Logo */
 .logo {
@@ -40,8 +42,10 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     font-size: 18px;
-    color: black;
+    color: #6a0dad;
+    background-color: white;
     padding: 10px 15px;
+    border: 2px solid #6a0dad;
     transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
     border-radius: 5px; /* Slightly rounded rectangle */
 }
@@ -204,14 +208,14 @@ footer {
 .module {
     max-width: 800px;
     margin: 20px auto;
-    border: 2px solid #6a0dad;
+    border: 2px solid black;
     border-radius: 10px;
     overflow: hidden;
     background-color: #f9f9f9;
   }
   
   .dropdown-btn {
-    background-color: #6a0dad;
+    background-color: black;
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -224,7 +228,7 @@ footer {
   }
   
   .dropdown-btn:hover {
-    background-color: #4b0082;
+    background-color: black;
   }
   
   .dropdown-content {
@@ -336,5 +340,6 @@ footer {
     color: #6a0dad;
   }
   
-
+  
+  
   
