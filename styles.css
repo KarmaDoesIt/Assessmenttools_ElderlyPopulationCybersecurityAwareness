@@ -208,14 +208,14 @@ footer {
 .module {
     max-width: 800px;
     margin: 20px auto;
-    border: 2px solid black;
+    border: 2px solid #6a0dad;
     border-radius: 10px;
     overflow: hidden;
     background-color: #f9f9f9;
   }
   
   .dropdown-btn {
-    background-color: black;
+    background-color: #6a0dad;
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -228,7 +228,7 @@ footer {
   }
   
   .dropdown-btn:hover {
-    background-color: black;
+    background-color: #6a0dad;
   }
   
   .dropdown-content {
