@@ -1,56 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Módulos de Aprendizaje</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 100px;
-      background-color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-    }
-
-    header img {
-      height: 80px;
-    }
-
-    header nav ul {
-      display: flex;
-      list-style: none;
-      gap: 20px;
-    }
-
-    header nav ul li a {
-      text-decoration: none;
-      font-weight: bold;
-      color: #6a0dad;
-    }
 
     .container {
       display: flex;
       max-width: 100%;
-      padding-top: 100px; /* offset for fixed header */
+      margin: 0;
     }
 
     .sidebar {
@@ -58,15 +18,15 @@
       padding: 20px;
       background-color: #f9f9f9;
       border-right: 2px solid #6a0dad;
-      height: calc(100vh - 100px);
+      height: 100vh;
       overflow-y: auto;
       position: fixed;
-      top: 100px;
+      top: 100px; 
       left: 0;
     }
 
     .content-area {
-      margin-left: 300px;
+      margin-left: 300px; 
       padding: 40px;
       flex-grow: 1;
     }
@@ -90,9 +50,7 @@
     }
 
     .dropdown-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out;
+      display: none;
       padding-left: 15px;
     }
 
@@ -107,32 +65,83 @@
     .dropdown-content a:hover {
       text-decoration: underline;
     }
-
-    footer {
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
-      color: #666;
-    }
   </style>
 </head>
 <body>
+  <header>
+    <a href="#inicio" class="site-logo">
+  <img src="https://i.imgur.com/X3GT1nk.png" alt="EPA Cybersecurity Logo" style="height: 90px;">
+</a>
+    <nav>
+      <ul>
+        <li><a href="index_es.html">Inicio</a></li>
+        <li><a href="modules_es.html">Módulos</a></li>
+        <li><a href="quiz_es.html">Prueba</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <main class="container">
     <aside class="sidebar">
-      <!-- Example module group -->
+      <!-- Virus -->
       <div class="module-group">
         <button class="dropdown-btn">▶ Aprenda Sobre Viruses</button>
         <div class="dropdown-content">
-          <a href="Articles/ES/Virus/virus_intro_es.html">1. ¿Qué es un Virus Informático?</a>
-          <a href="Articles/ES/Virus/virus_effects_es.html">2. ¿Qué hace un Virus Informático?</a>
-          <a href="Articles/ES/Virus/virus_prevention_es.html">3. ¿Cómo combatir y eliminar virus informáticos?</a>
-          <a href="Articles/ES/Virus/virus_removal_es.html">4. Cómo Eliminar un Virus</a>
-          <a href="Articles/ES/Virus/virus_conclusion_es.html">5. Virus Informático Resumen Final y Conclusión</a>
+            <a href="Articles/ES/Virus/virus_intro_es.html">1. ¿Qué es un Virus Informático?</a>
+            <a href="Articles/ES/Virus/virus_effects_es.html">2. ¿Qué hace un Virus Informático?</a>
+            <a href="Articles/ES/Virus/virus_prevention_es.html">3. ¿Cómo combatir y eliminar virus informáticos?</a>
+            <a href="Articles/ES/Virus/virus_removal_es.html">4. Cómo Eliminar un Virus</a>
+            <a href="Articles/ES/Virus/virus_conclusion_es.html">5. Virus Informático Resumen Final y Conclusión</a>
         </div>
       </div>
 
-      <!-- Repeat for other modules... -->
-      <!-- Adware, Trojan, Phishing, Mobile Malware -->
+      <!-- Adware -->
+      <div class="module-group">
+        <button class="dropdown-btn">▶ Aprenda Sobre Adware</button>
+        <div class="dropdown-content">
+            <a href="Articles/ES/Adware/adware_intro_es.html">1. ¿Qué es un adware maligno? </a>
+            <a href="Articles/ES/Adware/adware_effects_es.html">2. ¿Cómo afecta un adware a una computadora?</a>
+            <a href="Articles/ES/Adware/adware_prevention_es.html">3. ¿Cómo combatir un adware o programa publicitario?</a>
+            <a href="Articles/ES/Adware/adware_removal_es.html">4. Eliminar adware de una computadora</a>
+            <a href="Articles/ES/Adware/adware_conclusion_es.html">5. Adware resumen final y conclusión</a>
+        </div>
+      </div>
+
+      <!-- Trojan -->
+      <div class="module-group">
+        <button class="dropdown-btn">▶ Aprenda Sobre Trojan Malware</button>
+        <div class="dropdown-content">
+            <a href="Articles/ES/Trojan/trojan_intro_es.html">1. ¿Qué es un Malware Troyano?</a>
+            <a href="Articles/ES/Trojan/trojan_effects_es.html">2. ¿Cómo afecta un virus troyano a una computadora?</a>
+            <a href="Articles/ES/Trojan/trojan_prevention_es.html">3. ¿Cómo combatir y eliminar un virus troyano?</a>
+            <a href="Articles/ES/Trojan/trojan_removal_es.html">4. Eliminar un virus troyano de una computadora</a>
+            <a href="Articles/ES/Trojan/trojan_conclusion_es.html">5. Malware troyano resumen final y conclusión</a>
+        </div>
+      </div>
+
+      <!-- Phishing -->
+      <div class="module-group">
+        <button class="dropdown-btn">▶ Aprenda Sobre Phishing, Vishing, and Smishing</button>
+        <div class="dropdown-content">
+            <a href="Articles/ES/Phishing/phishing_intro_es.html">1. ¿Qué son Phishing, Vishing y Smishing?</a>
+            <a href="Articles/ES/Phishing/phishing_effects_es.html">2. ¿Qué hacen Phishing, Vishing y Smishing?</a>
+            <a href="Articles/ES/Phishing/phishing_prevention_es.html">3. Cómo combatir y manejar Phishing, Vishing y Smishing </a>
+            <a href="Articles/ES/Phishing/phishing_removal_es.html">4. Cómo manejar estos fraudes si ya ocurrieron</a>
+            <a href="Articles/ES/Phishing/phishing_conclusion_es.html">5. Phishing, Vishing y Smishing resumen final y conclusión</a>
+        </div>
+      </div>
+
+      <!-- Mobile Malware -->
+      <div class="module-group">
+        <button class="dropdown-btn">▶ Aprenda Sobre Malware Móvil</button>
+        <div class="dropdown-content">
+            <a href="Articles/ES/Mobile/mobile_intro_es.html">1. ¿Qué es el malware móvil?</a>
+            <a href="Articles/ES/Mobile/mobile_effects_es.html">2. ¿Qué hace un malware móvil?</a>
+            <a href="Articles/ES/Mobile/mobile_prevention_es.html">3. Cómo combatir y manejar el malware móvil</a>
+            <a href="Articles/ES/Mobile/mobile_removal_es.html">4. Cómo manejar el malware si ya está presente</a>
+            <a href="Articles/ES/Mobile/mobile_conclusion_es.html">5. Malware Móvil resumen final y conclusión</a>
+        </div>
+      </div>
     </aside>
 
     <section class="content-area">
@@ -148,8 +157,18 @@
     document.querySelectorAll(".dropdown-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const content = btn.nextElementSibling;
-        btn.classList.toggle("active");
-
+        content.style.display =
+          content.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+  <script>
+    const dropdowns = document.querySelectorAll(".dropdown-btn");
+  
+    dropdowns.forEach(button => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        const content = button.nextElementSibling;
         if (content.style.maxHeight) {
           content.style.maxHeight = null;
         } else {
@@ -158,5 +177,6 @@
       });
     });
   </script>
+  
 </body>
 </html>
