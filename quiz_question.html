@@ -1,38 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Question</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cybersecurity Quiz</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    header img {
+      height: 80px;
+    }
+
+    header nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #6a0dad;
+    }
+
+    main {
+      padding-top: 120px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #quiz-question {
+      max-width: 600px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    #quiz-question h1 {
+      margin-bottom: 10px;
+      color: #6a0dad;
+    }
+
+    #quiz-question p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    #quiz-question button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #6a0dad;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #quiz-question button:hover {
+      background-color: #4b0082;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <a href="#home" class="site-logo">
-  <img src="https://i.imgur.com/X3GT1nk.png" alt="EPA Cybersecurity Logo" style="height: 90px;">
-</a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="modules_en.html">Modules</a></li>
-                <li><a href="quiz_en.html">Quiz</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <section id="quiz-question">
-            <h1>Question #1</h1>
-            <p>What should you do if you receive an email from an unknown sender asking for personal information?</p>
-            <button>Ignore it</button>
-            <button>Reply with your information</button>
-            <button>Click on the link to check</button>
-            <button>Report it as spam</button>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 Cybersecurity Awareness. All rights reserved.</p>
-    </footer>
+  <header>
+    <a href="#home" class="site-logo">
+      <img src="https://i.imgur.com/X3GT1nk.png" alt="EPA Cybersecurity Logo">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="modules_en.html">Modules</a></li>
+        <li><a href="quiz_en.html">Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="quiz-question">
+      <h1>Question</h1>
+      <p>Loading...</p>
+      <button></button>
+      <button></button>
+      <button></button>
+      <button></button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Cybersecurity Awareness. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const quizData = [
+        {
+          question: "What should you do if you receive an email from an unknown sender asking for personal information?",
+          options: [
+            "Ignore it",
+            "Reply with your information",
+            "Click on the link to check",
+            "Report it as spam",
+          ],
+          correct: 0,
+        },
+        {
+          question: "What is a computer virus?",
+          options: [
+            "A type of hardware",
+            "A security update",
+            "A malicious software program",
+            "An email provider",
+          ],
+          correct: 2,
+        }
+      ];
+
+      let currentQuestion = 0;
+
+      const quizContainer = document.querySelector("#quiz-question");
+      const questionTitle = quizContainer.querySelector("h1");
+      const questionText = quizContainer.querySelector("p");
+      const optionButtons = Array.from(quizContainer.querySelectorAll("button"));
+
+      function loadQuestion(index) {
+        const q = quizData[index];
+        questionTitle.textContent = `Question #${index + 1}`;
+        questionText.textContent = q.question;
+
+        optionButtons.forEach((btn, idx) => {
+          if (q.options[idx]) {
+            btn.style.display = "block";
+            btn.textContent = q.options[idx];
+            btn.onclick = () => handleAnswer(idx);
+          } else {
+            btn.style.display = "none";
+          }
+        });
+      }
+
+      function handleAnswer(selected) {
+        const correct = quizData[currentQuestion].correct;
+        console.log(`Question ${currentQuestion + 1}: ${selected === correct ? "Correct" : "Incorrect"}`);
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+          loadQuestion(currentQuestion);
+        } else {
+          showResults();
+        }
+      }
+
+      function showResults() {
+        quizContainer.innerHTML = `<h1>Quiz Completed</h1><p>Check the console for your answers.</p>`;
+      }
+
+      loadQuestion(currentQuestion);
+    });
+  </script>
 </body>
 </html>
