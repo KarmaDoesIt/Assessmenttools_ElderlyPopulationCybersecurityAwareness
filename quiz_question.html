@@ -3,17 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cybersecurity Quiz</title>
+  <title>Malware Diagnostic Quiz</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f5f5f5; }
 
     header {
       position: fixed;
@@ -21,7 +14,7 @@
       left: 0;
       right: 0;
       height: 100px;
-      background-color: #fff;
+      background: #fff;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -30,47 +23,26 @@
       z-index: 1000;
     }
 
-    header img {
-      height: 80px;
-    }
-
-    header nav ul {
-      display: flex;
-      list-style: none;
-      gap: 20px;
-    }
-
+    header img { height: 80px; }
+    header nav ul { display: flex; list-style: none; gap: 20px; }
     header nav ul li a {
       text-decoration: none;
       font-weight: bold;
       color: #6a0dad;
     }
 
-    main {
-      padding-top: 120px;
-      display: flex;
-      justify-content: center;
-    }
-
+    main { padding-top: 120px; display: flex; justify-content: center; }
     #quiz-question {
-      max-width: 600px;
+      max-width: 700px;
       padding: 20px;
-      background-color: #f9f9f9;
+      background: #fff;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
 
-    #quiz-question h1 {
-      margin-bottom: 10px;
-      color: #6a0dad;
-    }
-
-    #quiz-question p {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
+    #quiz-question h1 { color: #6a0dad; margin-bottom: 10px; }
+    #quiz-question p { font-size: 18px; margin-bottom: 20px; }
     #quiz-question button {
       display: block;
       width: 100%;
@@ -83,9 +55,25 @@
       border-radius: 5px;
       cursor: pointer;
     }
+    #quiz-question button:hover { background-color: #4b0082; }
 
-    #quiz-question button:hover {
-      background-color: #4b0082;
+    .result-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .result-box {
+      width: 200px;
+      background: #6a0dad;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     footer {
@@ -98,9 +86,9 @@
 </head>
 <body>
   <header>
-    <a href="#home" class="site-logo">
-      <img src="https://i.imgur.com/X3GT1nk.png" alt="EPA Cybersecurity Logo">
-    </a>
+    <a href="index.html" class="site-logo">
+  <img src="https://i.imgur.com/8dprvc3.png" alt="EPA Cybersecurity Logo" style="height: 90px;">
+</a>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -116,8 +104,6 @@
       <p>Loading...</p>
       <button></button>
       <button></button>
-      <button></button>
-      <button></button>
     </section>
   </main>
 
@@ -129,28 +115,29 @@
     document.addEventListener("DOMContentLoaded", () => {
       const quizData = [
         {
-          question: "What should you do if you receive an email from an unknown sender asking for personal information?",
-          options: [
-            "Ignore it",
-            "Reply with your information",
-            "Click on the link to check",
-            "Report it as spam",
-          ],
-          correct: 0,
+          question: "Are there any unexpected pop-ups, ads, or notifications appearing on the screen or in the system tray?",
+          options: ["Yes", "No"],
+          module: "Adware"
         },
         {
-          question: "What is a computer virus?",
-          options: [
-            "A type of hardware",
-            "A security update",
-            "A malicious software program",
-            "An email provider",
-          ],
-          correct: 2,
+          question: "Has the computer's performance slowed down significantly, or does it frequently crash or freeze?",
+          options: ["Yes", "No"],
+          module: "Virus"
+        },
+        {
+          question: "Have you noticed your email being flooded with requests and warnings that you never partook in? (EX: Fedex missing packages or a survey from a company you never interacted with)",
+          options: ["Yes", "No"],
+          module: "Phishing Malware"
+        },
+        {
+          question: "Are there any new or unexpected programs or software installed on the computer?",
+          options: ["Yes", "No"],
+          module: "Trojan Malware"
         }
       ];
 
-      let currentQuestion = 0;
+      let current = 0;
+      const selectedModules = new Set();
 
       const quizContainer = document.querySelector("#quiz-question");
       const questionTitle = quizContainer.querySelector("h1");
@@ -161,34 +148,37 @@
         const q = quizData[index];
         questionTitle.textContent = `Question #${index + 1}`;
         questionText.textContent = q.question;
-
-        optionButtons.forEach((btn, idx) => {
-          if (q.options[idx]) {
-            btn.style.display = "block";
-            btn.textContent = q.options[idx];
-            btn.onclick = () => handleAnswer(idx);
-          } else {
-            btn.style.display = "none";
-          }
+        optionButtons.forEach((btn, i) => {
+          btn.textContent = q.options[i];
+          btn.style.display = "block";
+          btn.onclick = () => handleAnswer(i === 0, q.module); // "Yes" is index 0
         });
       }
 
-      function handleAnswer(selected) {
-        const correct = quizData[currentQuestion].correct;
-        console.log(`Question ${currentQuestion + 1}: ${selected === correct ? "Correct" : "Incorrect"}`);
-        currentQuestion++;
-        if (currentQuestion < quizData.length) {
-          loadQuestion(currentQuestion);
+      function handleAnswer(isYes, moduleName) {
+        if (isYes) selectedModules.add(moduleName);
+        current++;
+        if (current < quizData.length) {
+          loadQuestion(current);
         } else {
           showResults();
         }
       }
 
       function showResults() {
-        quizContainer.innerHTML = `<h1>Quiz Completed</h1><p>Check the console for your answers.</p>`;
+        let html = `<h1>Recommended Modules</h1><div class='result-container'>`;
+        if (selectedModules.size === 0) {
+          html += `<p>No major issues detected. But stay informed!</p>`;
+        } else {
+          selectedModules.forEach(module => {
+            html += `<a href="modules_en.html#${module.toLowerCase().replace(/\s/g, '-')}", class="result-box">${module}</a>`;
+          });
+        }
+        html += `</div>`;
+        quizContainer.innerHTML = html;
       }
 
-      loadQuestion(currentQuestion);
+      loadQuestion(current);
     });
   </script>
 </body>
