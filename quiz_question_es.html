@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuestionario de Diagnóstico de Malware</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f5f5f5; }
+
+    
+    main { padding-top: 120px; display: flex; justify-content: center; }
+    #quiz-question {
+      max-width: 700px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    #quiz-question h1 { color: #6a0dad; margin-bottom: 10px; }
+    #quiz-question p { font-size: 18px; margin-bottom: 20px; }
+    #quiz-question button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #6a0dad;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #quiz-question button:hover { background-color: #4b0082; }
+
+    .result-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .result-box {
+      width: 200px;
+      background: #6a0dad;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index_es.html" class="site-logo">
+  <img src="https://i.imgur.com/8dprvc3.png" alt="EPA Cybersecurity Logo" style="height: 90px;">
+</a>
+    <nav>
+      <ul>
+        <li><a href="index_es.html">Inicio</a></li>
+        <li><a href="modules_es.html">Módulos</a></li>
+        <li><a href="quiz_es.html">Prueba</a></li>
+        <li>
+          <select id="languageSwitcher">
+            <option value="quiz_question.html">English</option>
+            <option value="quiz_question_es.html">Español</option>
+          </select>
+        </li>
+  </ul>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="quiz-question">
+      <h1>Pregunta</h1>
+      <p>Cargando...</p>
+      <button></button>
+      <button></button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Cybersecurity Awareness. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const quizData = [
+        {
+          question: "¿Aparecen ventanas emergentes, anuncios o notificaciones inesperadas en la pantalla o en la bandeja del sistema?",
+          options: ["Si", "No"],
+          module: "Aprenda Sobre Adware"
+        },
+        {
+          question: "¿El rendimiento de la computadora se ha vuelto significativamente más lento o se bloquea o congela con frecuencia?",
+          options: ["Si", "No"],
+          module: "Aprenda Sobre Viruses"
+        },
+        {
+          question: "¿Has notado que tu correo electrónico se llena de solicitudes y advertencias en las que nunca participaste? (Ej: paquetes perdidos de FedEx o encuestas de empresas con las que nunca interactuaste)",
+          options: ["Si", "No"],
+          module: "Phishing Malware"
+        },
+        {
+          question: "¿Hay programas o software nuevos o inesperados instalados en la computadora?",
+          options: ["SI", "No"],
+          module: "Trojan Malware"
+        }
+      ];
+
+      let current = 0;
+      const selectedModules = new Set();
+
+      const quizContainer = document.querySelector("#quiz-question");
+      const questionTitle = quizContainer.querySelector("h1");
+      const questionText = quizContainer.querySelector("p");
+      const optionButtons = Array.from(quizContainer.querySelectorAll("button"));
+
+      function loadQuestion(index) {
+        const q = quizData[index];
+        questionTitle.textContent = `Question #${index + 1}`;
+        questionText.textContent = q.question;
+        optionButtons.forEach((btn, i) => {
+          btn.textContent = q.options[i];
+          btn.style.display = "block";
+          btn.onclick = () => handleAnswer(i === 0, q.module); // "Yes" is index 0
+        });
+      }
+
+      function handleAnswer(isYes, moduleName) {
+        if (isYes) selectedModules.add(moduleName);
+        current++;
+        if (current < quizData.length) {
+          loadQuestion(current);
+        } else {
+          showResults();
+        }
+      }
+
+      function showResults() {
+        let html = `<h1>Módulos Recomendados</h1><div class='result-container'>`;
+        if (selectedModules.size === 0) {
+          html += `<p>No se detectaron problemas importantes. ¡Pero mantente informado!</p>`;
+        } else {
+          selectedModules.forEach(module => {
+            html += `<a href="modules_es.html#${module.toLowerCase().replace(/\s/g, '-')}" class="result-box">${module}</a>`;
+          });
+        }
+        html += `</div>`;
+        quizContainer.innerHTML = html;
+      }
+
+      loadQuestion(current);
+    });
+  </script>
+  <script>
+    document.getElementById("languageSwitcher").addEventListener("change", function () {
+      window.location.href = this.value;
+    });
+
+    const currentPage = location.pathname.split("/").pop();
+    const options = document.querySelectorAll("#languageSwitcher option");
+    options.forEach(option => {
+      if (option.value === currentPage) {
+        option.selected = true;
+      }
+    });
+  </script>
+</body>
+</html>
