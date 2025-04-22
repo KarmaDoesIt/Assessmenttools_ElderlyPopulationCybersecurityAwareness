@@ -77,6 +77,12 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="modules_en.html">Modules</a></li>
         <li><a href="quiz_en.html">Quiz</a></li>
+        <li>
+        <select id="languageSwitcher">
+          <option value="modules_en.html">English</option>
+          <option value="modules_es.html">Español</option>
+        </select>
+      </li>
       </ul>
     </nav>
   </header>
@@ -148,6 +154,20 @@
       <iframe name="content-frame" src="Articles/Virus/virus_intro.html" width="100%" height="800" style="border: none;"></iframe>
     </section>
   </main>
+
+  <script>
+    document.getElementById("languageSwitcher").addEventListener("change", function () {
+      window.location.href = this.value;
+    });
+
+    const currentPage = location.pathname.split("/").pop();
+    const options = document.querySelectorAll("#languageSwitcher option");
+    options.forEach(option => {
+      if (option.value === currentPage) {
+        option.selected = true;
+      }
+    });
+  </script>
 
   <footer>
     <p>&copy; 2025 Cybersecurity Awareness. All rights reserved.</p>
