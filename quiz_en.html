@@ -16,6 +16,12 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="modules_en.html">Modules</a></li>
                 <li><a href="quiz_en.html">Quiz</a></li>
+                <li>
+                    <select id="languageSwitcher">
+                      <option value="quiz_en.html">English</option>
+                      <option value="quiz_es.html">Español</option>
+                    </select>
+                  </li>
             </ul>
         </nav>
     </header>
@@ -27,7 +33,19 @@
             <a href="quiz_question.html" class="button">Start Quiz</a>
         </section>
     </main>
-
+    <script>
+        document.getElementById("languageSwitcher").addEventListener("change", function () {
+          window.location.href = this.value;
+        });
+    
+        const currentPage = location.pathname.split("/").pop();
+        const options = document.querySelectorAll("#languageSwitcher option");
+        options.forEach(option => {
+          if (option.value === currentPage) {
+            option.selected = true;
+          }
+        });
+      </script>
     <footer>
         <p>&copy; 2025 Cybersecurity Awareness. All rights reserved.</p>
     </footer>
