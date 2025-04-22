@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index_es.html" class="site-logo">
+  <img src="https://i.imgur.com/8dprvc3.png" alt="EPA Cybersecurity Logo" style="height: 90px;">
+</a>
+        <nav>
+            <ul>
+                <li><a href="index_es.html">Inicio</a></li>
+                <li><a href="modules_es.html">Módulos</a></li>
+                <li><a href="quiz_es.html">Prueba</a></li>
+                <li>
+                    <select id="languageSwitcher">
+                      <option value="quiz_en.html">English</option>
+                      <option value="quiz_es.html">Español</option>
+                    </select>
+                  </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="quiz">
+            <h1>Cuestionario de Autodiagnóstico</h1>
+            <p>Pon a prueba tu conocimiento sobre ciberseguridad con este cuestionario rápido.</p>
+            <a href="quiz_question_es.html" class="button">Start Quiz</a>
+        </section>
+    </main>
+    <script>
+        document.getElementById("languageSwitcher").addEventListener("change", function () {
+          window.location.href = this.value;
+        });
+    
+        const currentPage = location.pathname.split("/").pop();
+        const options = document.querySelectorAll("#languageSwitcher option");
+        options.forEach(option => {
+          if (option.value === currentPage) {
+            option.selected = true;
+          }
+        });
+      </script>
+    <footer>
+        <p>&copy; 2025 Cybersecurity Awareness. All rights reserved.</p>
+    </footer>
+</body>
+</html>
