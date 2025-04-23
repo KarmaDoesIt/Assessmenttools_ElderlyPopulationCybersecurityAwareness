@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const quizBlocks = document.querySelectorAll('.inline-quiz');
+    const pageLang = document.documentElement.lang || 'en'; //detects lang
 
     quizBlocks.forEach(quiz =>{
         const correctAnswer = quiz.dataset.answer?.toLowerCase();
@@ -12,13 +13,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 buttons.forEach(btn => btn.disabled = true);
 
                 const selected = button.textContent.trim().charAt(0).toLowerCase();
+                const isCorrect = selected == correctAnswer;
 
-                if (selected === correctAnswer) {
-                    feedback.textContent = 'Correct!';
+                const messages ={
+                    en: {
+                        correct: 'Correct!',
+                        incorrect: 'Incorrect. The correct answer was "${correctAnswer.toUpperCase()}".`
+                    },
+                    es: {
+                        correct: '¡Correcto!', incorrect: `Incorrecto. La respuesta correcta era "${correctAnswer.toUpperCase()}".`
+                    }
+                };
+                
+                        
+
+                if (isCorrect) {
+                    feedback.textContent = langFeedback.correct;
                     feedback.classList.add('correct');
                     feedback.classList.remove('incorrect');
                 } else {
-                    feedback.textContent = `Incorrect. The correct answer was "${correctAnswer.toUpperCase()}".`;
+                    feedback.textContent = langFeedback.incorrect;
                     feedback.classList.add('incorrect');
                     feedback.classList.remove('correct');
                 }
