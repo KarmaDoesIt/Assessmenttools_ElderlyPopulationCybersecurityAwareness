@@ -151,7 +151,7 @@
     </aside>
 
     <section class="content-area">
-      <iframe name="content-frame" src="Articles/Virus/virus_intro.html" width="100%" height="800" style="border: none;"></iframe>
+      <iframe id="content-frame" name="content-frame" src="Articles/Virus/virus_intro.html" width="100%" height="800" style="border: none;"></iframe>
     </section>
   </main>
 
@@ -197,6 +197,26 @@
       });
     });
   </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const iframe = document.getElementById("content-frame");
+
+    const moduleMap = {
+      "virus-intro": "Articles/Virus/virus_intro.html",
+      "adware-intro": "Articles/Adware/adware_intro.html",
+      "trojan-intro": "Articles/Trojan/trojan_intro.html",
+      "phishing-intro": "Articles/Phishing/phishing_intro.html",
+      "mobile-intro": "Articles/Mobile/mobile_intro.html"
+    };
+
+    const fragment = window.location.hash.slice(1);
+    if (fragment && moduleMap[fragment]) {
+      iframe.src = moduleMap[fragment];
+    }
+  });
+</script>
+
   
 </body>
 </html>
