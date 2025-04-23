@@ -154,7 +154,7 @@
       function showResults() {
         let html = `<h1>Módulos Recomendados</h1><div class='result-container'>`;
         if (selectedModules.size === 0) {
-          html += `<p>No se detectaron problemas importantes. ¡Pero mantente informado!</p>`;
+          html += `<p>No se detectaron problemas importantes. ¡Pero manténgase informado!</p>`;
         } else {
           selectedModules.forEach(module => {
             html += `<a href="modules_es.html#${module.toLowerCase().replace(/\s/g, '-')}" class="result-box">${module}</a>`;
