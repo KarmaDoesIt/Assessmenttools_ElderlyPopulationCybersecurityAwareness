@@ -9,7 +9,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Arial, sans-serif; background: #f5f5f5; }
 
-    
     main { padding-top: 120px; display: flex; justify-content: center; }
     #quiz-question {
       max-width: 700px;
@@ -66,8 +65,8 @@
 <body>
   <header>
     <a href="index.html" class="site-logo">
-  <img src="https://i.imgur.com/8dprvc3.png" alt="EPA Cybersecurity Logo" style="height: 90px;">
-</a>
+      <img src="https://i.imgur.com/8dprvc3.png" alt="EPA Cybersecurity Logo" style="height: 90px;">
+    </a>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -79,7 +78,6 @@
             <option value="quiz_question_es.html">Español</option>
           </select>
         </li>
-  </ul>
       </ul>
     </nav>
   </header>
@@ -122,6 +120,13 @@
         }
       ];
 
+      const moduleFragments = {
+        "Adware": "adware-intro",
+        "Virus": "virus-intro",
+        "Phishing Malware": "phishing-intro",
+        "Trojan Malware": "trojan-intro"
+      };
+
       let current = 0;
       const selectedModules = new Set();
 
@@ -157,7 +162,8 @@
           html += `<p>No major issues detected. But stay informed!</p>`;
         } else {
           selectedModules.forEach(module => {
-            html += `<a href="modules_en.html#${module.toLowerCase().replace(/\s/g, '-')}", class="result-box">${module}</a>`;
+            const fragment = moduleFragments[module];
+            html += `<a href="modules_en.html#${fragment}" class="result-box">${module}</a>`;
           });
         }
         html += `</div>`;
@@ -167,6 +173,7 @@
       loadQuestion(current);
     });
   </script>
+
   <script>
     document.getElementById("languageSwitcher").addEventListener("change", function () {
       window.location.href = this.value;
