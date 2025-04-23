@@ -56,8 +56,8 @@
             <li><a href="quiz_en.html">Quiz</a></li>
             <li>
               <select id="languageSwitcher">
-                <option value="index.html">English</option>
-                <option value="index_es.html">Español</option>
+                <option value="modules_intro_en.html">English</option>
+                <option value="modules_intro_es.html">Español</option>
               </select>
             </li>
           </ul>
@@ -86,6 +86,20 @@
     <p>&copy; 2025 Cybersecurity Awareness. All rights reserved.</p>
   </footer>
 
+  <script>
+    document.getElementById("languageSwitcher").addEventListener("change", function () {
+      window.location.href = this.value;
+    });
+  
+    const currentPage = location.pathname.split("/").pop();
+    const options = document.querySelectorAll("#languageSwitcher option");
+    options.forEach(option => {
+      if (option.value === currentPage) {
+        option.selected = true;
+      }
+    });
+  </script>
+  
   
 </body>
 </html>

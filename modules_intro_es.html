@@ -55,8 +55,8 @@
         <li><a href="quiz_es.html">Prueba</a></li>
         <li>
           <select id="languageSwitcher">
-            <option value="index.html">English</option>
-            <option value="index_es.html" selected>Español</option>
+            <option value="modules_intro_en.html">English</option>
+            <option value="modules_intro_es.html">Español</option>
           </select>
         </li>
       </ul>
@@ -64,7 +64,7 @@
   </header>
 
   <main>
-    <h1>Selecciona un módulo para comenzar</h1>
+    <h1>Selecciona un Módulo Para Comenzar</h1>
     <p>Elige un tema a continuación para empezar a aprender sobre los diferentes tipos de amenazas cibernéticas.</p>
 
     <div class="module-buttons">
@@ -89,5 +89,19 @@
       window.location.href = this.value;
     });
   </script>
+  <script>
+    document.getElementById("languageSwitcher").addEventListener("change", function () {
+      window.location.href = this.value;
+    });
+  
+    const currentPage = location.pathname.split("/").pop();
+    const options = document.querySelectorAll("#languageSwitcher option");
+    options.forEach(option => {
+      if (option.value === currentPage) {
+        option.selected = true;
+      }
+    });
+  </script>
+  
 </body>
 </html>
