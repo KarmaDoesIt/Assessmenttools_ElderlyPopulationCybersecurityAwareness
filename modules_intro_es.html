@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Choose a Module</title>
+  <title>Selecciona un Módulo</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     main {
         text-align: center;
-        padding: 100px 20px 80px; /* Top padding accounts for the fixed header */
+        padding: 100px 20px 80px;
     }
 
     .module-buttons {
@@ -42,51 +41,53 @@
         gap: 20px;
         justify-content: center;
     }
-
   </style>
 </head>
 <body>
-    <header>
-        <a href="index.html" class="site-logo">
-      <img src="https://i.imgur.com/8dprvc3.png" alt="EPA Cybersecurity Logo" style="height: 90px;">
+  <header>
+    <a href="index_es.html" class="site-logo">
+      <img src="https://i.imgur.com/8dprvc3.png" alt="Logotipo de EPA Ciberseguridad" style="height: 90px;">
     </a>
-        <nav>
-          <ul>
-            <li><a href="index_es.html">Home</a></li>
-            <li><a href="modules_intro_es.html">Modules</a></li>
-            <li><a href="quiz_es.html">Quiz</a></li>
-            <li>
-              <select id="languageSwitcher">
-                <option value="index.html">English</option>
-                <option value="index_es.html">Español</option>
-              </select>
-            </li>
-          </ul>
-        </nav>
-      </header>
+    <nav>
+      <ul>
+        <li><a href="index_es.html">Inicio</a></li>
+        <li><a href="modules_intro_es.html">Módulos</a></li>
+        <li><a href="quiz_es.html">Prueba</a></li>
+        <li>
+          <select id="languageSwitcher">
+            <option value="index.html">English</option>
+            <option value="index_es.html" selected>Español</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
-    <h1>Select a Module to Begin</h1>
-    <p> Elija un tema de la lista para comenzar a aprender sobre los diferentes tipos de amenazas de ciberseguridad.</p>
+    <h1>Selecciona un módulo para comenzar</h1>
+    <p>Elige un tema a continuación para empezar a aprender sobre los diferentes tipos de amenazas cibernéticas.</p>
 
     <div class="module-buttons">
-        <div class="row">
-          <a href="modules_es.html#virus-intro" class="module-button">Viruses</a>
-          <a href="modules_es.html#adware-intro" class="module-button">Adware</a>
-          <a href="modules_es.html#trojan-intro" class="module-button">Trojan</a>
-        </div>
-        <div class="row">
-          <a href="modules_es.html#phishing-intro" class="module-button">Phishing</a>
-          <a href="modules_es.html#mobile-intro" class="module-button">Mobile</a>
-        </div>
+      <div class="row">
+        <a href="modules_es.html#virus-intro" class="module-button">Virus</a>
+        <a href="modules_es.html#adware-intro" class="module-button">Adware</a>
+        <a href="modules_es.html#trojan-intro" class="module-button">Troyano</a>
       </div>
-      
+      <div class="row">
+        <a href="modules_es.html#phishing-intro" class="module-button">Phishing</a>
+        <a href="modules_es.html#mobile-intro" class="module-button">Móvil</a>
+      </div>
+    </div>    
   </main>
 
   <footer>
-    <p>&copy; 2025 Cybersecurity Awareness. All rights reserved.</p>
+    <p>&copy; 2025 Concientización sobre Ciberseguridad. Todos los derechos reservados.</p>
   </footer>
 
-  
+  <script>
+    document.getElementById("languageSwitcher").addEventListener("change", function () {
+      window.location.href = this.value;
+    });
+  </script>
 </body>
 </html>

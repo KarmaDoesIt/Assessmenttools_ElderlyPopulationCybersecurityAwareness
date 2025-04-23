@@ -75,7 +75,7 @@
     <nav>
       <ul>
         <li><a href="index_es.html">Inicio</a></li>
-        <li><a href="modules_es.html">Módulos</a></li>
+        <li><a href="modules_intro_es.html">Módulos</a></li>
         <li><a href="quiz_es.html">Prueba</a></li>
         <li>
           <select id="languageSwitcher">
@@ -195,6 +195,24 @@
           content.style.maxHeight = content.scrollHeight + "px";
         }
       });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const iframe = document.querySelector("iframe");
+  
+      const moduleMap = {
+        "virus-intro": "Articles/ES/Virus/virus_intro_es.html",
+        "adware-intro": "Articles/ES/Adware/adware_intro_es.html",
+        "trojan-intro": "Articles/ES/Trojan/trojan_intro_es.html",
+        "phishing-intro": "Articles/ES/Phishing/phishing_intro_es.html",
+        "mobile-intro": "Articles/ES/Mobile/mobile_intro_es.html"
+      };
+  
+      const fragment = window.location.hash.slice(1); // Get text after #
+      if (fragment && moduleMap[fragment]) {
+        iframe.src = moduleMap[fragment];
+      }
     });
   </script>
   
