@@ -12,11 +12,11 @@
     }
 
     .module-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 40px;
     }
 
     .module-button {
@@ -35,6 +35,13 @@
       background: linear-gradient(135deg, #4b0082, #6a0dad);
       color: white;
     }
+
+    .row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
   </style>
 </head>
 <body>
@@ -62,12 +69,17 @@
     <p>Choose a topic below to start learning about different types of cybersecurity threats.</p>
 
     <div class="module-buttons">
-      <a href="modules_en.html#virus-intro" class="module-button">Viruses</a>
-      <a href="modules_en.html#adware-intro" class="module-button">Adware</a>
-      <a href="modules_en.html#trojan-intro" class="module-button">Trojans</a>
-      <a href="modules_en.html#phishing-intro" class="module-button">Phishing/Vishing/Smishing</a>
-      <a href="modules_en.html#mobile-intro" class="module-button">Mobile Malware</a>
-    </div>
+        <div class="row">
+          <a href="modules_en.html#virus-intro" class="module-button">Viruses</a>
+          <a href="modules_en.html#adware-intro" class="module-button">Adware</a>
+          <a href="modules_en.html#trojan-intro" class="module-button">Trojan</a>
+        </div>
+        <div class="row">
+          <a href="modules_en.html#phishing-intro" class="module-button">Phishing</a>
+          <a href="modules_en.html#mobile-intro" class="module-button">Mobile</a>
+        </div>
+      </div>
+      
   </main>
 
   <footer>
