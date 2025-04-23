@@ -18,14 +18,13 @@
       padding: 20px;
       background-color: #f9f9f9;
       border-right: 2px solid #6a0dad;
-      height: calc(100vh - 100px); /* subtract header height */
+      height: calc(100vh - 100px);
       overflow-y: auto;
       position: fixed;
-      top: 100px; /* equal to header height */
+      top: 100px;
       left: 0;
-      z-index: 1; /* make sure it stays below header */
+      z-index: 1;
     }
-
 
     .content-area {
       margin-left: 300px;
@@ -56,6 +55,10 @@
       padding-left: 15px;
     }
 
+    .dropdown-content.active {
+      display: block;
+    }
+
     .dropdown-content a {
       display: block;
       color: #6a0dad;
@@ -67,9 +70,6 @@
     .dropdown-content a:hover {
       text-decoration: underline;
     }
-
-</style>
-
   </style>
 </head>
 <body>
@@ -94,7 +94,7 @@
 
   <main class="container">
     <aside class="sidebar">
-      <!-- Modules Sidebar -->
+      <!-- Example Module Dropdown -->
       <div class="module-group">
         <button class="dropdown-btn">▶ Viruses</button>
         <div class="dropdown-content">
@@ -105,7 +105,8 @@
           <a href="Articles/Virus/virus_conclusion.html" target="content-frame">Final Recap</a>
         </div>
       </div>
-
+  
+      <!-- Adware -->
       <div class="module-group">
         <button class="dropdown-btn">▶ Adware</button>
         <div class="dropdown-content">
@@ -116,7 +117,7 @@
           <a href="Articles/Adware/adware_conclusion.html" target="content-frame">Final Recap</a>
         </div>
       </div>
-
+      <!-- Trojan -->
       <div class="module-group">
         <button class="dropdown-btn">▶ Trojan</button>
         <div class="dropdown-content">
@@ -127,7 +128,7 @@
           <a href="Articles/Trojan/trojan_conclusion.html" target="content-frame">Final Recap</a>
         </div>
       </div>
-
+      <!-- Phishing -->
       <div class="module-group">
         <button class="dropdown-btn">▶ Phishing, Vishing, Smishing</button>
         <div class="dropdown-content">
@@ -138,7 +139,7 @@
           <a href="Articles/Phishing/phishing_conclusion.html" target="content-frame">Final Recap</a>
         </div>
       </div>
-
+      <!-- Mobile Malware -->
       <div class="module-group">
         <button class="dropdown-btn">▶ Mobile Malware</button>
         <div class="dropdown-content">
@@ -166,24 +167,16 @@
       document.getElementById("languageSwitcher").addEventListener("change", function () {
         window.location.href = this.value;
       });
-
-      const currentPage = location.pathname.split("/").pop();
-      const options = document.querySelectorAll("#languageSwitcher option");
-      options.forEach(option => {
-        if (option.value === currentPage) {
-          option.selected = true;
-        }
-      });
-
-      // Sidebar Dropdown Toggle
+  
+      // Dropdown Toggle (updated to toggle visibility directly)
       document.querySelectorAll(".dropdown-btn").forEach(button => {
         button.addEventListener("click", () => {
           const content = button.nextElementSibling;
           content.style.display = content.style.display === "block" ? "none" : "block";
         });
       });
-
-      // Handle Fragment ID for iframe loading
+  
+      // Fragment-based iframe loading
       const iframe = document.getElementById("content-frame");
       const moduleMap = {
         "virus-intro": "Articles/Virus/virus_intro.html",
@@ -192,15 +185,13 @@
         "phishing-intro": "Articles/Phishing/phishing_intro.html",
         "mobile-intro": "Articles/Mobile/mobile_intro.html"
       };
-
-
+  
       const fragment = window.location.hash.slice(1);
       if (fragment && moduleMap[fragment]) {
         iframe.src = moduleMap[fragment];
-      } else {
-        iframe.src = "Articles/Virus/virus_intro.html";
       }
     });
   </script>
+  
 </body>
 </html>
