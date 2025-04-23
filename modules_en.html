@@ -10,6 +10,7 @@
       display: flex;
       max-width: 100%;
       margin: 0;
+      padding-top: 100px; /* match header height */
     }
 
     .sidebar {
@@ -17,12 +18,14 @@
       padding: 20px;
       background-color: #f9f9f9;
       border-right: 2px solid #6a0dad;
-      height: 100vh;
+      height: calc(100vh - 100px); /* subtract header height */
       overflow-y: auto;
       position: fixed;
-      top: 100px;
+      top: 100px; /* equal to header height */
       left: 0;
+      z-index: 1; /* make sure it stays below header */
     }
+
 
     .content-area {
       margin-left: 300px;
@@ -64,6 +67,9 @@
     .dropdown-content a:hover {
       text-decoration: underline;
     }
+
+</style>
+
   </style>
 </head>
 <body>

@@ -8,14 +8,33 @@ body {
 }
 
 /* Header */
-header {
+/*header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
     background-color: black;
     border-bottom: 2px solid #6a0dad; /* Thin purple bottom border */
+/*}*/
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: black;
+  color: white;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  border-bottom: 2px solid #6a0dad;
+  box-sizing: border-box;
 }
+
+
 
 
 
@@ -355,6 +374,7 @@ footer {
   
   main {
     flex:1;
+    padding-top: 100px; /* This prevents header from overlapping content */
   }
   
   html, body {
