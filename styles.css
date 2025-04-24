@@ -32,9 +32,11 @@ header {
 
 /* Logo */
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: black;
+  height: 90px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  padding-top: 10px;
 }
 
 /* Navigation */
