@@ -376,6 +376,16 @@ article h2 {
     font-weight: 600;
     text-align: center;
   }
+
+  .modules-intro footer p {
+      font-size: 14px;
+      font-weight: normal;
+      color: black;
+      margin: 20px 0;
+      padding: 15px;
+      border-top: 2px solid #6a0dad; /* Thin purple top border */
+      text-align: center;
+  }
   
   h2 {
     font-size: 24px;
