@@ -364,6 +364,8 @@ footer p {
     color: black;
     margin: 20px 0;
 }
+
+
   .module-buttons {
         display: flex;
         flex-direction: column;
@@ -391,6 +393,6 @@ footer p {
 
     .row {
         display: flex;
-        gap: 30px;
+        gap: 20px;
         justify-content: center;
     }
