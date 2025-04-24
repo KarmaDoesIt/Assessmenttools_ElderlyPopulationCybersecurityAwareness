@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self';"> <!-- csp protection  -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Choose a Module</title>
   <link rel="stylesheet" href="styles.css" />
@@ -105,19 +107,7 @@
     <p>&copy; 2025 EPA Cybersecurities. All rights reserved.</p>
   </footer>
 
-  <script>
-    document.getElementById("languageSwitcher").addEventListener("change", function () {
-      window.location.href = this.value;
-    });
-  
-    const currentPage = location.pathname.split("/").pop();
-    const options = document.querySelectorAll("#languageSwitcher option");
-    options.forEach(option => {
-      if (option.value === currentPage) {
-        option.selected = true;
-      }
-    });
-  </script>
+  <script src="langSwitch.js"></script>
   
   
 </body>
