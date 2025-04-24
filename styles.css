@@ -186,13 +186,13 @@ article h2 {
     color: #4b0082; /* Purple */
 }
 
-article p {
+/*article p {
     font-size: 25px;
     margin-bottom: 20px;
     font-weight: 600;
     line-height: 1.6;
     color: black;
-}
+}*/
 
 /* Button Styling */
 .button {
@@ -301,7 +301,7 @@ article p {
     color: #6a0dad;
     border: 2px solid #6a0dad;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 20px;
     margin: 8px 0;
     width: 100%;
     text-align: left;
@@ -330,7 +330,7 @@ article p {
 
   .inline-quiz .feedback {
     margin-top: 12px;
-    font-size: 16px;
+    font-size: 20px;
     padding: 8px;
     border-radius: 6px;
   }
@@ -359,6 +359,8 @@ article p {
     background-color: #ffffff;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 25px;
+    font-weight: 500;
   }
   h1 {
     font-size: 45px;
@@ -368,12 +370,12 @@ article p {
     color: #4b0082;
   }
 
-  p {
+  /*p {
     font-size: 25px;
     margin-bottom: 20px;
     font-weight: 600;
     text-align: center;
-  }
+  }*/
   
   h2 {
     font-size: 24px;
