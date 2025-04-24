@@ -8,14 +8,6 @@ body {
 }
 
 /* Header */
-/*header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-    background-color: black;
-    border-bottom: 2px solid #6a0dad; /* Thin purple bottom border */
-/*}*/
 
 header {
   position: fixed;
@@ -56,6 +48,8 @@ nav ul {
 nav ul li {
     margin-left: 20px;
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 nav ul li a {
@@ -69,6 +63,18 @@ nav ul li a {
     border-radius: 5px; /* Slightly rounded rectangle */
 }
 
+nav ul li select {
+  font-size: 16px;
+  background-color: #6a0dad;
+  border: 2px solid black;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 36px;
+  box-sizing: border-box;
+}
+
 /* Rectangular hover effect */
 nav ul li a:hover {
     background: linear-gradient(135deg, #4b0082, #6a0dad); /* Dark purple gradient */
@@ -77,6 +83,9 @@ nav ul li a:hover {
     padding: 10px 15px;
     border-radius: 5px; /* Rounded rectangle shape */
 }
+
+
+
 
 /* Home Section */
 #home {
