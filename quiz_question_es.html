@@ -110,6 +110,11 @@
           options: ["Si", "No"],
           module: "Viruses"
         },
+         {
+          question: "¿Alguna vez su teléfono ha empezado a mostrar anuncios emergentes incluso cuando no está usando el navegador ni ninguna aplicación?",
+          options: ["Si", "No"],
+          module: "Mobile"
+        },
         {
           question: "¿Ha notado que su correo electrónico se llena de solicitudes y advertencias en las que nunca participo? (Ej: paquetes perdidos de FedEx o encuestas de empresas con las que nunca ha interactuado)",
           options: ["Si", "No"],
@@ -125,6 +130,7 @@
       const moduleFragments = {
         "Adware": "adware-intro",
         "Viruses": "virus-intro",
+        "Mobile": "mobile-intro",
         "Phishing": "phishing-intro",
         "Troyano": "trojan-intro"
       };
