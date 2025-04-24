@@ -364,21 +364,33 @@ footer p {
     color: black;
     margin: 20px 0;
 }
+  .module-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 40px;
+    }
 
-.module-button {
-  background-color: black;
-  color: white;
-  border: 2px solid #6a0dad;
-  padding: 12px 30px; /* Adjusted padding for more consistent size */
-  font-size: 20px; /* Adjusted font-size to match original size */
-  border-radius: 10px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
+    .module-button {
+      background-color: black;
+      color: white;
+      border: 2px solid #6a0dad;
+      padding: 15px 25px;
+      font-size: 25px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
 
-.module-button:hover {
-  background: linear-gradient(135deg, #4b0082, #6a0dad);
-  color: white;
-}
+    .module-button:hover {
+      background: linear-gradient(135deg, #4b0082, #6a0dad);
+      color: white;
+    }
 
+    .row {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
