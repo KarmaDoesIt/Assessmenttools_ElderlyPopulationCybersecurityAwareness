@@ -361,11 +361,18 @@ article p {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
   h1 {
-    font-size: 32px;
+    font-size: 45px;
     font-weight: 800;
     text-align: center;
     margin-top: 20px;
     color: #4b0082;
+  }
+
+  p {
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
   }
   
   h2 {
