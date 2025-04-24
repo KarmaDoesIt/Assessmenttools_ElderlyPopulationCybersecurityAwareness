@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self';"> <!-- csp protection  -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Módulos de Aprendizaje</title>
   <link rel="stylesheet" href="styles.css" />
@@ -159,65 +161,11 @@
     <p>&copy; 2025 EPA Cybersecurities. All rights reserved.</p>
   </footer>
 
-  <script>
-    // Language Switcher
-    document.getElementById("languageSwitcher").addEventListener("change", function () {
-      window.location.href = this.value;
-    });
-
-    const currentPage = location.pathname.split("/").pop();
-    const options = document.querySelectorAll("#languageSwitcher option");
-    options.forEach(option => {
-      if (option.value === currentPage) {
-        option.selected = true;
-      }
-    });
-  </script>
-
+  <script src="langSwitch.js"></script>
+  <script src="modules.js"></script>
  
 
-  <script>
-    document.querySelectorAll(".dropdown-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const content = btn.nextElementSibling;
-        content.style.display =
-          content.style.display === "block" ? "none" : "block";
-      });
-    });
-  </script>
-  <script>
-    const dropdowns = document.querySelectorAll(".dropdown-btn");
-  
-    dropdowns.forEach(button => {
-      button.addEventListener("click", () => {
-        button.classList.toggle("active");
-        const content = button.nextElementSibling;
-        if (content.style.maxHeight) {
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-      });
-    });
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const iframe = document.querySelector("iframe");
-  
-      const moduleMap = {
-        "virus-intro": "Articles/ES/Virus/virus_intro_es.html",
-        "adware-intro": "Articles/ES/Adware/adware_intro_es.html",
-        "trojan-intro": "Articles/ES/Trojan/trojan_intro_es.html",
-        "phishing-intro": "Articles/ES/Phishing/phishing_intro_es.html",
-        "mobile-intro": "Articles/ES/Mobile/mobile_intro_es.html"
-      };
-  
-      const fragment = window.location.hash.slice(1); // Get text after #
-      if (fragment && moduleMap[fragment]) {
-        iframe.src = moduleMap[fragment];
-      }
-    });
-  </script>
+ 
   
 </body>
 </html>
