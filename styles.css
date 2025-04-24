@@ -26,8 +26,10 @@ header {
   box-sizing: border-box;
 }
 
-
-
+/* for modules intro html*/
+content-frame {
+  border: none;
+}
 
 
 /* Logo */
